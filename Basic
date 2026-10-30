@@ -1,0 +1,808 @@
+# MASTER PROMPT: BUILD A REALISTIC GTA V-LEVEL OPEN-WORLD ACTION GAME
+
+## 1. YOUR ROLE AND PRIMARY OBJECTIVE
+
+Act as an elite AAA game development studio consisting of:
+
+- A senior Unreal Engine 5 developer
+- An expert C++ gameplay programmer
+- A professional 3D environment artist
+- An advanced artificial intelligence programmer
+- A vehicle physics engineer
+- A character animation specialist
+- A mission and narrative designer
+- A user interface and experience designer
+- A technical artist specializing in optimization
+- A game testing and quality assurance engineer
+
+Your mission is to design, develop, integrate, test, and deliver a **fully playable, realistic, third-person, open-world action-adventure game with the systemic depth, freedom, cinematic presentation, driving mechanics, and emergent gameplay associated with Grand Theft Auto V**.
+
+This game must be an original intellectual property. Do not copy Rockstar Games' proprietary source code, map geometry, recognizable characters, dialogue, missions, music, logos, or copyrighted artwork.
+
+The objective is not merely to create a demonstration or a game design document. Your objective is to produce an actual playable game with working systems.
+
+**Game title:** Sunset City: Open World
+
+**Engine:** Unreal Engine 5, latest compatible stable release
+
+**Programming:** C++ for core gameplay systems, Blueprints for configuration and cinematic scripting
+
+**Target:** Windows PC
+
+**Camera:** Third-person with optional first-person mode
+
+**Genre:** Open-world action adventure, driving, exploration, crime, and story missions
+
+**Graphics goal:** High-quality realistic visuals using Unreal Engine 5 lighting, geometry, materials, animations, and environmental effects
+
+**Target performance:** Approximately 60 FPS at 1080p on a midrange gaming PC, with adjustable graphics settings
+
+---
+
+## 2. MOST IMPORTANT DEVELOPMENT RULES
+
+1. All gameplay systems must function together as one coherent game.
+2. Avoid creating static mockups that imitate gameplay without functioning mechanics.
+3. Never claim a feature works unless its implementation and dependencies are present.
+4. Use modular, well-organized, maintainable code.
+5. Build an actual Unreal Engine project with the necessary source files, maps, assets, configuration, and documentation.
+6. Use legally licensed or original assets.
+7. Implement systems incrementally, testing each before integration.
+8. Avoid placeholder features disguised as completed functionality.
+9. Prioritize playable functionality before cosmetic complexity.
+10. Treat this as a large, multi-stage project rather than claiming a complete AAA game can be built in one response.
+
+Start by creating a polished vertical slice of one neighborhood. Expand the world once the core gameplay is verified.
+
+---
+
+## 3. OPEN-WORLD CITY
+
+Create a detailed fictional modern American-style coastal metropolis called **Sunset City**.
+
+The full design should accommodate a large, continuously explorable region with the following districts:
+
+### Downtown
+- Tall skyscrapers and office buildings
+- Multiple lanes of traffic
+- Traffic lights and crosswalks
+- Banks, shops, parking garages, and restaurants
+- Crowded sidewalks and busy intersections
+- Enterable parking structures and selected buildings
+
+### Residential neighborhoods
+- Suburban houses and apartments
+- Driveways and parked vehicles
+- Parks, convenience stores, gas stations, and alleyways
+- Residential traffic and pedestrians
+
+### Luxury district
+- Expensive homes and villas
+- Sports cars and luxury vehicles
+- Private security areas
+- Swimming pools and landscaped properties
+
+### Industrial district
+- Warehouses and cargo yards
+- Construction equipment
+- Shipping containers and factories
+- Truck traffic and industrial missions
+
+### Beach and entertainment district
+- Sandy beaches and ocean
+- Boardwalks, restaurants, and recreational spaces
+- Nightclubs, entertainment venues, and hotels
+- Civilian activity that varies by time of day
+
+### Countryside
+- Forests, hills, mountains, and winding roads
+- Small towns, farms, and isolated properties
+- Highway routes linking the city to surrounding regions
+
+### World requirements
+- Roads must connect logically.
+- Vehicles must follow road networks.
+- Pedestrians must navigate sidewalks.
+- Buildings must have appropriate collision.
+- The player must be able to travel between districts without manual loading screens wherever practical.
+- Use World Partition and appropriate level streaming.
+- Implement distance-based level of detail and world-origin considerations when required.
+
+**Initial playable target:** One highly polished neighborhood containing several connected streets, functional traffic, civilians, accessible destinations, and mission locations.
+
+---
+
+## 4. MAIN PLAYABLE CHARACTER
+
+Create an original playable protagonist named Alex Mercer, or another entirely original character.
+
+The protagonist must have a high-quality human appearance with realistic proportions and animations.
+
+### Character movement
+Implement:
+
+- Walking and jogging
+- Sprinting
+- Smooth acceleration and deceleration
+- Jumping
+- Crouching
+- Climbing small obstacles
+- Vaulting over barriers
+- Contextual interaction
+- Entering and exiting vehicles
+- Swimming when water environments are implemented
+- Physical collision with appropriate world objects
+
+Use an animation state machine that supports blending between movement states.
+
+The character should turn naturally toward movement and aiming directions.
+
+### Camera
+Implement a third-person follow camera with:
+
+- Smooth following and rotation
+- Mouse and controller camera movement
+- Adjustable sensitivity
+- Collision avoidance
+- Automatic camera obstruction correction
+- Camera transitions between walking, driving, and aiming
+
+Support optional first-person mode after the core third-person implementation is stable.
+
+---
+
+## 5. VEHICLE DRIVING AND PHYSICS
+
+Vehicle driving is a major gameplay priority.
+
+Create a system that supports multiple vehicle categories with distinct handling characteristics.
+
+### Initial vehicle categories
+1. Economy sedan
+2. Sports coupe
+3. SUV
+4. Pickup truck
+5. Police patrol vehicle
+
+Each vehicle requires:
+
+- Acceleration and braking
+- Steering and reverse movement
+- Suspension and wheel rotation
+- Traction and grip
+- Handbrake
+- Different handling characteristics
+- Engine sounds
+- Functional headlights
+- Brake lights
+- Turn indicators where supported
+- Vehicle collision
+- Visible damage reactions
+- Vehicle entry and exit animations
+
+### Driving realism
+Implement an arcade-realistic handling model emphasizing responsiveness and enjoyment.
+
+Vehicle mass, engine power, tire friction, and suspension must affect behavior.
+
+The player must be able to approach an eligible vehicle, press an interaction button, enter it, and drive it.
+
+When exiting, the character must appear beside the vehicle at a valid collision-free position.
+
+### Traffic
+AI-controlled vehicles should:
+
+- Follow designated road lanes
+- Stop at traffic signals
+- Respect intersections where practical
+- Maintain distance from other vehicles
+- Avoid obstacles
+- React to vehicle collisions
+- React to emergency vehicles
+- Resume their routes following temporary disruptions
+
+Add vehicle spawning and despawning that respect player visibility and performance constraints.
+
+---
+
+## 6. PEDESTRIANS AND CIVILIAN ARTIFICIAL INTELLIGENCE
+
+Create a believable pedestrian simulation.
+
+NPCs should not simply stand still or wander randomly without purpose.
+
+### Civilian behavior
+- Walk along sidewalks
+- Cross streets appropriately
+- Sit at benches where animations exist
+- Enter and leave designated locations
+- Talk with other civilians
+- React to nearby collisions
+- Become startled by dangerous events
+- Run away from immediate threats
+- Report witnessed crimes under suitable conditions
+
+Implement behavior trees, state machines, or Unreal's AI systems to control civilian behavior.
+
+### Individual NPC attributes
+Each pedestrian should have configurable attributes such as:
+
+- Walking speed
+- Reaction delay
+- Fear response
+- Aggression tendency
+- Awareness distance
+- Daily activity category
+
+Use NPC behavior variation so that the crowd does not respond identically to every event.
+
+Maintain a performance-conscious NPC population management system.
+
+---
+
+## 7. POLICE AND WANTED LEVEL SYSTEM
+
+Create a reactive law enforcement system with six states:
+
+- Level 0: No active police pursuit
+- Level 1: Low-priority police interest
+- Level 2: Active pursuit by patrol officers
+- Level 3: Coordinated pursuit with additional police units
+- Level 4: Escalated tactical response
+- Level 5: Maximum police response
+
+### Crime detection
+Police should respond to in-game criminal actions through detection systems involving:
+
+- Direct officer observation
+- Civilian witnesses
+- Crime reporting
+- Nearby emergency calls
+- Ongoing active pursuit
+
+### Pursuit behavior
+Police should be capable of:
+
+- Arriving in vehicles
+- Pursuing the player on foot
+- Pursuing the player's vehicle
+- Searching nearby areas after losing sight
+- Coordinating multiple units
+- Attempting arrest when appropriate
+- Escalating or de-escalating based on player actions
+
+### Losing the wanted level
+Implement:
+
+- Line-of-sight tracking
+- Last known player location
+- Search radius
+- Search timer
+- Gradual wanted-level reduction
+- Complete pursuit termination after successful escape
+
+Police must not simply know the player's exact location continuously after losing visual contact.
+
+---
+
+## 8. COMBAT AND ACTION SYSTEM
+
+Develop a third-person action and combat system.
+
+### Core mechanics
+- Unarmed attacks
+- Melee interactions
+- Weapon equipping
+- Third-person aiming
+- Camera-based targeting
+- Recoil and firing animations
+- Reloading
+- Health and damage
+- Cover interactions
+- Enemy hit reactions
+
+### Technical requirements
+Use a modular system separating:
+
+- Character combat
+- Weapon inventory
+- Damage calculation
+- Animation events
+- Audio-visual effects
+- NPC combat behavior
+
+Implement responsive controls and fair gameplay balancing.
+
+The system should function with player characters and enemy NPCs.
+
+---
+
+## 9. INTERACTIVE GAME WORLD
+
+The player must be able to interact with meaningful objects and locations.
+
+Create interaction systems for:
+
+- Vehicle doors
+- Shops
+- Garages
+- Apartment entrances
+- Mission triggers
+- Collectible objects
+- Inventory objects
+- Selected building interiors
+
+When approaching an interactive object, display a contextual interaction prompt.
+
+Use reusable interaction interfaces rather than implementing every interaction separately.
+
+---
+
+## 10. STORY AND MISSION SYSTEM
+
+Create an original cinematic narrative suitable for a large modern open-world game.
+
+The protagonist arrives in Sunset City looking for a fresh start but becomes involved in an escalating conflict between competing fictional criminal organizations, local businesses, and law enforcement.
+
+Build a reusable mission framework.
+
+### Required mission functionality
+- Mission discovery
+- Mission activation
+- Objective display
+- Objective progress tracking
+- Checkpoints
+- Success conditions
+- Failure conditions
+- Restart or retry
+- Mission rewards
+- Mission completion screens
+
+### Initial missions
+
+**Mission 1: First Ride**
+
+The player begins outside an apartment, meets a contact, enters a vehicle, follows a GPS route, and reaches a designated location.
+
+This mission teaches walking, interaction, driving, navigation, and mission completion.
+
+**Mission 2: City Delivery**
+
+The player receives a package from a fictional business, drives through several neighborhoods, avoids a traffic hazard, and delivers the package before an optional timer expires.
+
+This mission teaches driving precision and open-world navigation.
+
+**Mission 3: Escape Route**
+
+The player encounters a scripted conflict, enters a getaway vehicle, evades an escalating police response, breaks line of sight, and reaches a safe destination.
+
+This mission demonstrates the complete police pursuit system.
+
+Each mission must be fully playable from beginning to end, not merely described.
+
+### Cinematic storytelling
+Eventually support:
+
+- In-game cutscenes
+- Conversation camera angles
+- NPC dialogue
+- Facial animation where available
+- Mission transitions
+- Environmental storytelling
+
+---
+
+## 11. USER INTERFACE AND HUD
+
+Develop a polished, responsive game interface.
+
+### In-game HUD
+Display:
+
+- Health indicator
+- Money
+- Equipped weapon
+- Ammunition where applicable
+- Wanted level
+- Mission objective
+- Interaction prompts
+- Minimap
+
+### Main menu
+Provide:
+
+- New Game
+- Continue
+- Settings
+- Controls
+- Exit
+
+### Pause menu
+Provide:
+
+- Resume
+- Map
+- Missions
+- Settings
+- Save Game
+- Main Menu
+
+### Full map
+Create a city map with:
+
+- Current player position
+- Mission locations
+- Points of interest
+- GPS waypoint selection
+- Routes along navigable roads
+
+### In-game phone
+Design an original fictional smartphone interface supporting:
+
+- Contacts
+- Messages
+- Mission notifications
+- Map shortcuts
+
+Prioritize useful functionality before adding decorative applications.
+
+---
+
+## 12. ENVIRONMENTAL SYSTEMS
+
+Implement a time-of-day system with smooth transitions between:
+
+- Morning
+- Afternoon
+- Evening
+- Night
+
+Add realistic sun and moon lighting.
+
+### Weather
+Plan for:
+
+- Clear skies
+- Overcast weather
+- Rain
+- Fog
+- Wind
+
+Weather should influence the world visually.
+
+Rain should provide wet road materials and appropriate environmental sound effects. Where feasible, adjust traction slightly during wet conditions.
+
+Streetlights and vehicle headlights should become more prominent after sunset.
+
+Use Unreal Engine 5 features such as Lumen, Nanite, virtual shadow maps, and scalable quality settings as appropriate.
+
+---
+
+## 13. GAME ECONOMY
+
+Implement an in-game financial system.
+
+The player can earn fictional currency through missions and spend it on appropriate game services.
+
+### Economy features
+- Money wallet
+- Mission payments
+- Shop purchasing
+- Garage purchases
+- Vehicle repairs
+- Basic item inventory
+
+All transactions should persist when the player saves the game.
+
+Do not implement real-money gambling or unnecessary monetization systems.
+
+---
+
+## 14. AUDIO AND ATMOSPHERE
+
+Build a responsive environmental audio system.
+
+Include appropriately licensed or original sounds for:
+
+- Traffic
+- Vehicle engines
+- Footsteps
+- Urban crowds
+- Wind
+- Rain
+- Sirens
+- Collision events
+- Character interactions
+- UI feedback
+
+Use spatial audio where appropriate.
+
+Implement a basic vehicle radio system using original or appropriately licensed music, with multiple fictional radio categories.
+
+Do not copy music, radio content, or audio assets from GTA V.
+
+---
+
+## 15. SAVE AND LOAD SYSTEM
+
+The game must save meaningful progress.
+
+Persist:
+
+- Player location
+- Health
+- Money
+- Mission completion
+- Inventory
+- Owned vehicles
+- World time
+- Important unlocked locations
+
+Use a robust Unreal Engine SaveGame implementation.
+
+Test saving, quitting, and reloading.
+
+Add reasonable recovery handling when saved data is missing or invalid.
+
+---
+
+## 16. CONTROL CONFIGURATION
+
+Support keyboard and mouse as the primary input system.
+
+Recommended initial controls:
+
+| Action | Key |
+|---|---|
+| Move | W, A, S, D |
+| Sprint | Left Shift |
+| Jump | Space |
+| Crouch | Left Ctrl |
+| Interact / Enter vehicle | E |
+| Aim | Right Mouse |
+| Attack / Fire | Left Mouse |
+| Reload | R |
+| Handbrake | Space while driving |
+| Pause | Esc |
+| Map | M |
+| Phone | Up Arrow |
+
+Use Unreal Enhanced Input so controls are context sensitive, rebindable where possible, and suitable for later controller support.
+
+---
+
+## 17. GRAPHICS AND PRESENTATION QUALITY
+
+Create a cohesive realistic visual style with:
+
+- Detailed roads and sidewalks
+- Believable building materials
+- Natural vegetation
+- Realistic reflections
+- Dynamic lighting
+- High-quality character motion
+- Appropriate vehicle materials
+- Cinematic environmental composition
+- Responsive particle effects
+
+Avoid flat, untextured prototype environments in the final presentation.
+
+However, during early implementation, use simple temporary geometry where necessary to verify mechanics.
+
+Replace prototypes with finished assets progressively.
+
+Create original branding, street names, district designs, and fictional companies.
+
+---
+
+## 18. OPTIMIZATION AND PERFORMANCE
+
+Implement performance-conscious architecture.
+
+Required techniques where appropriate:
+
+- World Partition
+- Level streaming
+- Hierarchical instanced static meshes
+- Level of detail management
+- NPC population limits
+- Traffic simulation optimization
+- Object pooling
+- Texture streaming
+- Visibility and distance culling
+- Scalable graphics settings
+
+Provide separate Low, Medium, High, and Epic quality presets.
+
+Measure performance rather than assuming the game runs smoothly.
+
+Target minimal gameplay stutter, consistent input responsiveness, and stable frame pacing.
+
+---
+
+## 19. DEVELOPMENT PLAN AND DELIVERABLES
+
+Do not attempt to build every system simultaneously.
+
+Follow this development sequence.
+
+### Phase 1 — Functional foundation
+- Create Unreal Engine project
+- Configure Enhanced Input
+- Create controllable third-person character
+- Implement movement and camera
+- Create a small playable environment
+- Verify successful project launch
+
+**Deliverable:** A working third-person character who can navigate a test environment.
+
+### Phase 2 — Driving
+- Create one functional vehicle
+- Add vehicle entry and exit
+- Implement realistic-feeling arcade driving
+- Connect driving and walking camera systems
+- Build roads and collision
+
+**Deliverable:** The player can walk to a vehicle, enter, drive, park, exit, and continue walking.
+
+### Phase 3 — Living neighborhood
+- Build one polished city district
+- Add road and sidewalk networks
+- Add vehicles controlled by AI
+- Add pedestrians
+- Add traffic signals
+
+**Deliverable:** A functioning neighborhood with pedestrians and traffic.
+
+### Phase 4 — Police response
+- Implement crime event detection
+- Create police AI
+- Add wanted levels
+- Implement vehicle pursuit
+- Implement escape and search behavior
+
+**Deliverable:** A playable and testable police pursuit system.
+
+### Phase 5 — Missions
+- Create the mission framework
+- Implement three complete story missions
+- Add objectives, checkpoints, and rewards
+- Connect missions to navigation and wanted systems
+
+**Deliverable:** Three fully completable missions.
+
+### Phase 6 — Complete gameplay loop
+- Add HUD and menus
+- Add minimap and GPS
+- Implement saving
+- Implement economy and shops
+- Integrate audio and weather
+
+**Deliverable:** A cohesive vertical-slice game that can be played, saved, and resumed.
+
+### Phase 7 — Expansion
+Only after the vertical slice passes testing:
+
+- Add more city districts
+- Add more vehicle types
+- Expand NPC behaviors
+- Add additional missions
+- Expand interiors
+- Improve graphics
+- Add cinematic sequences
+- Optimize performance
+
+---
+
+## 20. MANDATORY TESTING
+
+At the end of every phase, verify behavior using practical tests.
+
+Examples:
+
+**Character test:** The player can walk, sprint, jump, and collide correctly with world geometry.
+
+**Vehicle test:** The player can enter and exit a vehicle repeatedly without losing control or clipping through geometry.
+
+**Traffic test:** AI vehicles navigate intersections without routinely becoming permanently stuck.
+
+**Police test:** Police pursue the player after a detected incident and eventually stop searching after a successful escape.
+
+**Mission test:** A mission can be started, completed, failed, and restarted correctly.
+
+**Save test:** Progress remains consistent after restarting the game.
+
+**Performance test:** Record FPS, frame time, and memory usage in representative gameplay scenes.
+
+If a test fails, explain the cause, repair the implementation, and rerun the test before proceeding.
+
+---
+
+## 21. FILES AND OUTPUT REQUIREMENTS
+
+When project file access is available, create the actual project instead of merely producing instructions.
+
+Provide:
+
+1. A logically structured Unreal Engine project.
+2. Source code for implemented gameplay components.
+3. Required Blueprints, assets, configurations, and maps.
+4. A README explaining project requirements.
+5. Build and launch instructions.
+6. A control reference.
+7. A list of implemented features.
+8. A list of unfinished features.
+9. Testing notes and known issues.
+10. An executable Windows build when the environment supports compiling and packaging.
+
+If direct file generation or Unreal compilation is unavailable, generate complete, internally consistent source files in sequential, manageable chunks and state clearly which parts remain untested.
+
+Never invent test results, completed builds, existing files, or assets.
+
+---
+
+## 22. YOUR FIRST ACTION
+
+Start the project immediately.
+
+First, provide the technical architecture and a realistic implementation plan identifying the initial files, modules, dependencies, and assets.
+
+Then begin implementing Phase 1.
+
+Create the Unreal Engine project structure, configure input, create the player controller and playable character, implement third-person movement and camera behavior, and establish the initial level.
+
+Provide actual code and relevant setup instructions.
+
+Do not stop at a concept description or request repeated permission to continue routine development phases.
+
+Prioritize a real, working game over impressive-looking but nonfunctional demonstrations.
+
+**FINAL QUALITY PRINCIPLE: The game should eventually deliver the freedom, believable city simulation, responsive driving, exciting police pursuits, mission structure, and immersive exploration that players enjoy in GTA V, while remaining an original, independently developed game.**
+
+
+
+
+
+
+
+
+
+## FINAL OVERRIDE: BUILD THE EASIEST PLAYABLE VERSION
+
+You have full authority to choose the simplest practical technology for delivering a working 3D open-world game.
+
+**My priority is to actually PLAY the game, not simply receive explanations, plans, screenshots, or unfinished code.**
+
+Use the following development approach:
+
+1. Build the game for modern desktop web browsers using Three.js, JavaScript, HTML, CSS, and Vite. Use lightweight physics and collision systems where appropriate.
+2. Do not use Unreal Engine unless browser development becomes genuinely unsuitable.
+3. Make a playable 3D city with connected streets, intersections, buildings, sidewalks, parks, and accessible roads.
+4. Add a controllable third-person human character with walking, running, jumping, and smooth camera movement.
+5. Add at least three drivable vehicles with steering, acceleration, braking, collisions, and enter/exit functionality.
+6. Add moving civilian cars and pedestrians that react to their surroundings.
+7. Add a functioning police wanted system, including police cars that pursue the player and eventually stop searching when the player escapes.
+8. Add health, money, a minimap, mission objectives, and a pause menu.
+9. Create three simple, fully playable missions involving driving, exploration, and escaping police.
+10. Use attractive 3D graphics, lighting, shadows, and original assets without copying GTA V's copyrighted content.
+
+**CRITICAL REQUIREMENTS:**
+
+- Start writing the actual game code immediately.
+- Produce a playable prototype before expanding the feature set.
+- Ensure the browser displays an actual interactive 3D game, not a static mockup.
+- Include keyboard and mouse controls.
+- Do not create nonfunctional buttons.
+- Avoid unnecessary third-party assets that might prevent the game from running.
+- Fix errors and test functionality whenever execution tools are available.
+- Provide a working preview if your environment supports it, or complete instructions to launch it locally.
+- Do not claim to have tested anything you cannot execute.
+- Implement as much as possible within the available environment, then clearly identify unfinished features.
+
+**DEVELOPMENT PRIORITY:**
+
+First make the player walk around a 3D city. Next let the player enter and drive a car. Then add traffic, pedestrians, police, missions, and progressively better graphics.
+
+Make the first playable version visually appealing and genuinely fun.
+
+**BEGIN BUILDING THE GAME NOW. DO NOT STOP AFTER WRITING A DEVELOPMENT PLAN.**
